@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import marked from 'marked';
 const ReactMarkdown = require('react-markdown');
 
@@ -58,7 +57,7 @@ marked.setOptions({
 
 const renderer = new marked.Renderer();
 renderer.link = function (href, title, text) {
-  return `<a target="_blank" href="${href}">${text}` + '</a>';
+  return `<a target="_blank"cd href="${href}">${text}` + '</a>';
 }
 class App extends Component {
 
@@ -70,22 +69,29 @@ class App extends Component {
 
 
     const handleChange = (e) => {
-      //let oldState = this.state.mark;
       this.setState({
         mark: e.target.value
       })
     }
     return (
       <div className="App">
+        
+        <div className="container editor">
+            <div className="navbar">
+              Editor
+            </div>
+            <textarea id="editor" value={this.state.mark} className="editor" onChange={handleChange} />
+        </div>
+        
+        <div className="container preview">
+            <div className="navbar">
+              Preview
+            </div>
+            <div id="preview" dangerouslySetInnerHTML={{ __html: marked(this.state.mark, { renderer: renderer }) }} />
 
-        <textarea id="editor" value={this.state.mark} className="editor" onChange={handleChange} />
-        {/* <div className="preview" id="preview">
-           <ReactMarkdown source={this.state.mark} rawSourcePos={'true'} className="preview" />
-          <p>{this.state.mark}</p>
-        </div> */}
+        </div>
 
-        <div id="preview" dangerouslySetInnerHTML={{ __html: marked(this.state.mark, { renderer: renderer }) }} />
-
+        
 
 
 

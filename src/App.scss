@@ -1,0 +1,50 @@
+.App {
+  
+  display: flex;
+  background: #4E5283;
+  color: #4E5283;
+  justify-content: center;
+  height: 100vh;
+  .container {
+    margin-top: 57px;
+    .navbar {
+      display: flex;
+      background: #AA9FB1;
+      height: 65px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 25px;
+      line-height: 29px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.editor {
+
+      textarea {
+        width: 23vw;
+        height: 470px;
+        background: #C4C4C4;
+        color: #4E5283;
+        padding-left: 15px;
+      }
+      
+    }
+    &.preview {
+      background: #C4C4C4;
+      overflow: auto;
+      width: 53vw;
+      height: 540px;
+      margin-left: 90px;
+      #preview {
+        padding-left: 15px;
+      }
+      code {
+        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",monospace;
+        }
+    }
+
+  }
+}
+
